@@ -11,6 +11,7 @@ import {
   UserButton
 } from '@clerk/nextjs'
 import { ReactNode } from "react";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
     >
   <html lang="en">
       <body className={inter.className}><AppProviders>{children}</AppProviders></body>
+      <Toaster richColors/>
     </html>
     </ClerkProvider>
   
