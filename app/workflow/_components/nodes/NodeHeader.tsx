@@ -10,9 +10,21 @@ import React from "react";
 
 function NodeHeader({ taskType }: { taskType: TaskType }) {
   const task = TaskRegistry[taskType];
+  if (!task) {
+    console.error(`Task type "${taskType}" not found in TaskRegistry.`);
+    return null;
+  }
+
+  // Ensure that task.icon is valid
+  const IconComponent = task.icon;
+  if (!IconComponent || typeof IconComponent !== "function") {
+    console.error(`Icon for task type "${taskType}" is invalid.`);
+    return null;
+  }
+
   return (
     <div className="flex items-center gap-2 p-2">
-      <task.icon size={16} />
+      <IconComponent size={16} /> {/* Render icon dynamically */}
       <div className="flex justify-between items-center w-full">
         <p className="text-xs font-bold uppercase text-muted-foreground">
           {task.label}
@@ -25,12 +37,12 @@ function NodeHeader({ taskType }: { taskType: TaskType }) {
           TODO
         </Badge>
         <Button
-         variant={"ghost"}
-         size={"icon"}
-         className="drag-handle cursor-grab"
-         >
-            <GripVerticalIcon size={20}/>
-         </Button>
+          variant={"ghost"}
+          size={"icon"}
+          className="drag-handle cursor-grab"
+        >
+          <GripVerticalIcon size={20} />
+        </Button>
       </div>
     </div>
   );
