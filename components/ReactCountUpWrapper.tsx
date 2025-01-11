@@ -3,7 +3,7 @@
 import prisma from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server"
 
-export async function GetAvailableCredits() {
+export async function ReactCountUpWrapper() {
     const { userId } = await auth();
     if (!userId) {
         throw new Error("unauthenticated");

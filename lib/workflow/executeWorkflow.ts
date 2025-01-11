@@ -208,6 +208,7 @@ async function executePhase(
   
   const runFn = ExecutorRegistry[node.data.type];
   if (!runFn) {
+    logCollector.error(`not found executor ${node.data.type}`)
     return false;
   }
   const executionEnvironment: ExecutionEnvironment<any> =

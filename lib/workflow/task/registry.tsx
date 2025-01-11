@@ -5,8 +5,17 @@
 import { TaskType } from "@/types/task";
 import { ExtractTextFromElementTask } from "./ExtractTextFromElement";
 import { LaunchBrowserTask } from "./LaunchBrowser";
-import { PageToHtmlTask } from "./PageToHtml";
+import { FillInputTask } from "./FillInput";
 import { WorkflowTask } from "@/types/workflow";
+import { ClickElementTask } from "./ClickElement";
+import { PageToHtmlTask } from "@/lib/workflow/task/PageToHtml"
+import { WaitForElementTask } from "./WaitForElement";
+import { DeliverViaWebhookTask } from "./DeliverViaWebHook";
+import { ExtractDataWithAiTask } from "./ExtractDataWithAi";
+import { ReadPropertyFromJsonTask } from "./ReadPropertyFromJson";
+import { AddPropertyToJsonTask } from "./AddPropertyToJson";
+import { NavigateUrlTask } from "./NavigateUrlTask";
+import { ScrollToElementTask } from "./ScrollToElement";
 
 type Registry = {
   [K in TaskType]: WorkflowTask & { type: K };
@@ -17,6 +26,15 @@ export const TaskRegistry = {
   LAUNCH_BROWSER: LaunchBrowserTask,
   PAGE_TO_HTML: PageToHtmlTask,
   EXTRACT_TEXT_FROM_ELEMENT: ExtractTextFromElementTask,
+  FILL_INPUT: FillInputTask,
+  CLICK_ELEMENT: ClickElementTask,
+  WAIT_FOR_ELEMENT: WaitForElementTask,
+  DELIVER_VIA_WEBHOOK: DeliverViaWebhookTask,
+  EXTRACT_DATA_WITH_AI: ExtractDataWithAiTask,
+  READ_PROPERTY_FROM_JSON: ReadPropertyFromJsonTask,
+  ADD_PROPERTY_TO_JSON: AddPropertyToJsonTask,
+  NAVIGATE_URL: NavigateUrlTask,
+  SCROLL_TO_ELEMENT: ScrollToElementTask,
 }
 // // Updated Task type with `icon` property
 // export type Task = {
