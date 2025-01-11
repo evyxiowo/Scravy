@@ -72,7 +72,7 @@ function FlowEditor({ workflow }: { workflow: Workflow }) {
   const onConnect = useCallback((connection: Connection) => {
     setEdges((eds) => addEdge({ ...connection, animated: true }, eds));
     if(!connection.targetHandle) return;
-    const node = node.find((nd) => nd.id === connection.target);
+    const node = nodes.find((nd) => nd.id === connection.target);
     if(!node) return;
     const nodeInputs = node.data.inputs
     updateNodeData(node.id, {
@@ -90,8 +90,8 @@ function FlowEditor({ workflow }: { workflow: Workflow }) {
         return false;
       }
 
-      const source = node.find((node) => node.id === connection.source);
-      const target = node.find((node) => node.id === connection.target);
+      const source = nodes.find((node) => node.id === connection.source);
+      const target = nodes.find((node) => node.id === connection.target);
       if (!source ||!target) {
         console.error("Invalid connection: source or target node not found");
         return false;

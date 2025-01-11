@@ -36,6 +36,7 @@ function NodeParamField({
           param={param}
           value={value}
           updateNodeParamValue={updateNodeParamValue}
+          disabled={disabled}
         />
       );
 
