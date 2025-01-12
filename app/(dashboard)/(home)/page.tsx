@@ -114,6 +114,7 @@ async function CreditsUsageInPeriod({
    data={data}
    title="Daily credits spent"
    description="Daily credits consumed in selected period"
+   />
   )
 }
 export default HomePage;
