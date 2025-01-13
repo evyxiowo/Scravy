@@ -25,10 +25,10 @@ export default function TaskMenu() {
             User Interactions
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-1">
-          <TaskMenuBtn taskType={TaskType.NAVIGATE_URL} />
-          <TaskMenuBtn taskType={TaskType.FILL_INPUT} />
-          <TaskMenuBtn taskType={TaskType.CLICK_ELEMENT} />
-          <TaskMenuBtn taskType={TaskType.SCROLL_TO_ELEMENT} />
+            <TaskMenuBtn taskType={TaskType.NAVIGATE_URL} />
+            <TaskMenuBtn taskType={TaskType.FILL_INPUT} />
+            <TaskMenuBtn taskType={TaskType.CLICK_ELEMENT} />
+            <TaskMenuBtn taskType={TaskType.SCROLL_TO_ELEMENT} />
           </AccordionContent>
         </AccordionItem>
 
@@ -42,34 +42,35 @@ export default function TaskMenu() {
             <TaskMenuBtn taskType={TaskType.EXTRACT_DATA_WITH_AI} />
           </AccordionContent>
         </AccordionItem>
+
+        <AccordionItem value="storage">
+          <AccordionTrigger className="font-bold">
+            Data storage
+          </AccordionTrigger>
+          <AccordionContent className="flex flex-col gap-1">
+            <TaskMenuBtn taskType={TaskType.READ_PROPERTY_FROM_JSON} />
+            <TaskMenuBtn taskType={TaskType.ADD_PROPERTY_TO_JSON} />
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="timing">
+          <AccordionTrigger className="font-bold">
+            Timing controls
+          </AccordionTrigger>
+          <AccordionContent className="flex flex-col gap-1">
+            <TaskMenuBtn taskType={TaskType.WAIT_FOR_ELEMENT} />
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="results">
+          <AccordionTrigger className="font-bold">
+            Result delivery
+          </AccordionTrigger>
+          <AccordionContent className="flex flex-col gap-1">
+            <TaskMenuBtn taskType={TaskType.DELIVER_VIA_WEBHOOK} />
+          </AccordionContent>
+        </AccordionItem>
       </Accordion>
-      <AccordionItem value="storage">
-        <AccordionTrigger className="font-bold">
-          Data storage
-        </AccordionTrigger>
-        <AccordionContent className="flex flex-col gap-1">
-        <TaskMenuBtn taskType={TaskType.READ_PROPERTY_FROM_JSON} />
-        <TaskMenuBtn taskType={TaskType.ADD_PROPERTY_TO_JSON} />
-        </AccordionContent>
-      </AccordionItem>
-
-      <AccordionItem value="timing">
-        <AccordionTrigger className="font-bold">
-          Timing controls
-        </AccordionTrigger>
-        <AccordionContent className="flex flex-col gap-1">
-          <TaskMenuBtn taskType={TaskType.WAIT_FOR_ELEMENT} />
-        </AccordionContent>
-      </AccordionItem>
-
-      <AccordionItem value="results">
-        <AccordionTrigger className="font-bold">
-          Result delivery
-        </AccordionTrigger>
-        <AccordionContent className="flex flex-col gap-1">
-          <TaskMenuBtn taskType={TaskType.DELIVER_VIA_WEBHOOK} />
-        </AccordionContent>
-      </AccordionItem>
     </aside>
   );
 }

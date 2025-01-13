@@ -49,7 +49,7 @@ export async function PublishWorkflow({
     data: {
       definition: flowDefinition,
       executionPlan: JSON.stringify(result.executionPlan),
-      creditsCost,
+      creditsCost: 10,
       status: WorkflowStatus.PUBLISHED
     }
 })

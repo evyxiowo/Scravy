@@ -3,7 +3,7 @@ import { WorkflowTask } from "@/types/workflow";
 import { CodeIcon, LucideProps, MousePointerClick, TextIcon } from "lucide-react";
 
 export const ClickElementTask = {
-  type: TaskType.EXTRACT_TEXT_FROM_ELEMENT,
+  type: TaskType.CLICK_ELEMENT,
   label: "Click Element", // Task label
   icon: (props) => (
     <MousePointerClick className="stroke-orange-400" {...props} /> // Correctly spread props

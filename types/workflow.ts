@@ -19,7 +19,7 @@ export type WorkflowTask = {
   credits: number;
 };
 
-export type WorkflowExecutionPlanPhase = {
+export type WorkflowExecutionPlanPhase = { //?????-?????-
   phase: number;
   nodes: AppNode[];
 };
@@ -31,7 +31,6 @@ export enum WorkflowExecutionStatus {
     RUNNING = "RUNNING",
     COMPLETED = "COMPLETED",
     FAILED = "FAILED",
-    CANCELLED = "CANCELLED",
 }
 export enum WorkflowExecutionTrigger {
   MANUAL = "MANUAL",
@@ -43,7 +42,6 @@ export enum ExecutionPhaseStatus {
     RUNNING = "RUNNING",
     COMPLETED = "COMPLETED",
     FAILED = "FAILED",
-    CANCELLED = "CANCELLED",
 }
 
 

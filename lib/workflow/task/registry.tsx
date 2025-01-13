@@ -8,14 +8,14 @@ import { LaunchBrowserTask } from "./LaunchBrowser";
 import { FillInputTask } from "./FillInput";
 import { WorkflowTask } from "@/types/workflow";
 import { ClickElementTask } from "./ClickElement";
-import { PageToHtmlTask } from "@/lib/workflow/task/PageToHtml"
 import { WaitForElementTask } from "./WaitForElement";
 import { DeliverViaWebhookTask } from "./DeliverViaWebHook";
-import { ExtractDataWithAiTask } from "./ExtractDataWithAi";
 import { ReadPropertyFromJsonTask } from "./ReadPropertyFromJson";
 import { AddPropertyToJsonTask } from "./AddPropertyToJson";
 import { NavigateUrlTask } from "./NavigateUrlTask";
 import { ScrollToElementTask } from "./ScrollToElement";
+import { PageToHtmlTask } from "./PageToHtml";
+import { ExtractDataWithAiTask } from "@/lib/workflow/task/ExtractDataWithAI";
 
 type Registry = {
   [K in TaskType]: WorkflowTask & { type: K };

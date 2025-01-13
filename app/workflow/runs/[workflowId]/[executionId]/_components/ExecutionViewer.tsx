@@ -1,48 +1,28 @@
-"use Client";
+"use client";
 
 import { GetWorkflowExecutionWithPhases } from "@/actions/workflows/GetWorkflowExecutionWithPhases";
 import { GetWorkflowPhaseDetails } from "@/actions/workflows/getWorkflowPhaseDetails";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 import { DatesToDurationString } from "@/lib/helper/dates";
 import { GetPhasesTotalCost } from "@/lib/helper/phases";
-import { cn } from "@/lib/utils";
-import { LogLevel } from "@/types/log";
 import {
   ExecutionPhaseStatus,
   WorkflowExecutionStatus,
 } from "@/types/workflow";
-import { ExecutionLog } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
-import { formatDistanceToNow } from "date-fns";
-import {
-  CalendarIcon,
-  CircleDashedIcon,
-  ClockIcon,
-  CoinsIcon,
-  Loader2Icon,
-  LucideIcon,
-  WorkflowIcon,
-} from "lucide-react";
-import React, { ReactNode, useEffect, useState } from "react";
+import { CalendarIcon, CircleDashedIcon, ClockIcon, CoinsIcon, Loader2Icon, LucideIcon, WorkflowIcon } from "lucide-react";
+import { ReactNode, useEffect, useState } from "react";
 import PhaseStatusBadge from "./PhaseStatusBadge";
+import { formatDistanceToNow } from "date-fns";
+import { ReactCountUpWrapper } from "@/components/ReactCountUpWrapper";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { ExecutionLog } from "@prisma/client";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { LogLevel } from "@/types/log";
+import { cn } from "@/lib/utils";
 
 type ExecutionData = Awaited<ReturnType<typeof GetWorkflowExecutionWithPhases>>;
 
@@ -79,9 +59,9 @@ export default function ExecutionViewer({
       return;
     }
     const phaseToSelect = phases.toSorted((a, b) =>
-    a.completedAt! > b.completedAt! ? -1 : 1
+      a.completedAt! > b.completedAt! ? -1 : 1
     )[0];
-    setSelectedPhase(phaseToSelect.id)
+    setSelectedPhase(phaseToSelect.id);
   }, [query.data?.phases, isRunning, setSelectedPhase]);
 
   const duration = DatesToDurationString(
@@ -99,7 +79,9 @@ export default function ExecutionViewer({
             label="Status"
             value={
               <div className="font-semibold capitalize flex gap-2 items-center">
-                <PhaseStatusBadge status={query.data?.status as ExecutionPhaseStatus} />
+                <PhaseStatusBadge
+                  status={query.data?.status as ExecutionPhaseStatus}
+                />
                 <span>{query.data?.status}</span>
               </div>
             }

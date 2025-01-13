@@ -61,7 +61,6 @@ export async function RunWorkFlow(form: {
     }
 
     executionPlan = result.executionPlan;
-  }
 
   const execution = await prisma.workflowExecution.create({
     data: {
@@ -94,6 +93,8 @@ export async function RunWorkFlow(form: {
   if (!execution) {
     throw new Error("Workflow execution not created");
   }
+
   ExecuteWorkflow(execution.id);
   redirect(`/workflow/runs/${workflowId}/${execution.id}`);
+}
 }

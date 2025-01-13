@@ -9,7 +9,7 @@ export async function SetupUser() {
     if (!userId) {
         throw new Error("unauthenticated")
     }
-    const balance = await prisma.userBalance.findUnique({where: {userId} });
+    const balance =  await prisma.userBalance.findUnique({where: {userId} });
     if (!balance) {
         await prisma.userBalance.create({
             data: { userId,

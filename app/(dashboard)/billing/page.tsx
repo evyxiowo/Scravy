@@ -1,5 +1,4 @@
 import { GetAvailableCredits } from "@/actions/billing/getAvailableCredits";
-import { ReactCountUpWrapper } from "@/components/ReactCountUpWrapper";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowLeftRightIcon, CoinsIcon } from "lucide-react";
@@ -9,6 +8,8 @@ import CreditUsageChart from "./_components/CreditUsageChart";
 import { Period } from "@/types/analytics";
 import { GetCreditUsageInPeriod } from "@/actions/analytics/getCreditUsageInPeriod.ts";
 import { GetUserPurchaseHistory } from "@/actions/billing/getUserPurchaseHistory";
+import { ReactCountUpWrapper } from "@/components/ReactCountUpWrapper";
+import InvoiceBtn from "./_components/InvoiceBtn";
 
 export default function BillingPage() {
   return (
@@ -29,7 +30,6 @@ export default function BillingPage() {
 }
 
 async function BalanceCard() {
-  const userBalance = await GetAvailableCredits();
   return (
     <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20 shadow-lg flex justify-between flex-col overflow-hidden">
       <CardContent className="p-6 relative items-center">
@@ -39,7 +39,7 @@ async function BalanceCard() {
               Available Credits
             </h3>
             <p className="text-4xl font-bold text-primary">
-              <ReactCountUpWrapper value={userBalance} />
+              <ReactCountUpWrapper />
             </p>
           </div>
           <CoinsIcon
@@ -49,7 +49,7 @@ async function BalanceCard() {
         </div>
       </CardContent>
       <CardFooter className="text-muted-foreground text-sm">
-        When your credit balance reaches zero , your workflows wil stop working
+        When your credit balance reaches zero, your workflows will stop working
       </CardFooter>
     </Card>
   );

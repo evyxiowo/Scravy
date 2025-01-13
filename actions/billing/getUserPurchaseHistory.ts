@@ -10,7 +10,7 @@ export async function GetUserPurchaseHistory() {
         throw new Error("unauthenticated");
     }
 
-    return prisma.userPurcase.findMany({
+    return prisma.userPurchase.findMany({
         where: { userId},
         orderBy: {
             date: "desc"
